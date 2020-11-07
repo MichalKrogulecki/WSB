@@ -1,6 +1,6 @@
 # Laboratorium 2
 Pomoc do zadań znajdą Państwo w sekcji [POMOC](https://github.com/MichalKrogulecki/WSB/tree/master/Programowanie%20komputer%C3%B3w/Pomoc)
-## Zadania (10 pkt):
+## Zadania (8 pkt):
 1. (2 pkt) Napisz program, który zainicjalizuje 2-wymiarową tablicę *int[10,10]* w taki sposób, jakby była tabliczką mnożenia. Następnie, tak jak w Zadaniu 2 na Laboratorium 1, wypisz tabliczkę mnożenia na ekran.
 2. (2 pkt) Napisz program, który pozwoli zapełnić n–elementową tablicę jednowymiarową liczb całkowitych wartościami podanymi przez użytkownika. Na początku działania programu użytkownik podaje liczbę elementów tablicy, a następnie poszczególne wartości jej elementów. Po wypełnieniu całej tablicy program powinien wypisać jej wartości w oknie konsoli.
 3. (4 pkt) Napisz program, który w losowy sposób zapełni jednowymiarową tablicę 100-elementową liczbami całkowitymi z przedziału [-1000, 1000]. Do generowania liczb losowych użyj metody *[Random.Next(-1000,1001)](https://docs.microsoft.com/pl-pl/dotnet/api/system.random.next?view=netcore-3.1)*. Następnie wyświetl na ekranie:
