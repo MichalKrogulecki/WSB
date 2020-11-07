@@ -37,11 +37,11 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
    Funkcja *Main()* może również być pozbawiona parametrów jak i może zwracać jakąś wartość. Wówczas mogłaby wyglądać na przykład tak:
 
    ```c#
-           static int Main()
-           {
-               //...
-               return 0;
-           }
+   static int Main()
+   {
+       //...
+       return 0;
+   }
    ```
 
    
@@ -523,5 +523,77 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
     string @class = "student";	// bez znaku '@' przed słowem kluczowym 'class' byłby błąd kompilacji
     ```
 
-    
+14. **Tablice statyczne**
+
+    Tablice statyczne to takie, które w chwili kompilacji mają określony swój rozmiar (wielkość).
+
+    1. **Tablica jednowymiarowa**
+
+       Deklaracja:
+
+       ```c#
+       typ[] nazwa = new typ[rozmiar];
+       ```
+
+       Definicja / Inicjalizacja:
+
+       ```c#
+       typ[] nazwa = {lista_inicjacyjna}
+       ```
+
+       Przykłady użycia:
+
+       ```c#
+       //Przykład 1a: Deklaracja i w kolejnych liniach definicja elementów
+       int[] tablica = new int[4];	//Deklaracja tablicy 4-elementowej
+       tablica[0] = 0;	//PAMIĘTAJ! Indeksowanie w tablicach rozpoczyna się od '0'
+       tablica[1] = 5;
+       tablica[2] = 10;
+       tablica[3] = 15;
+       //PAMIĘTAJ! Nie możesz odwołać się do elementu tablica[4], ponieważ zadeklarowaliśmy tablicę 4-elementową (od '0' do '3')
+       
+       //Przykład 1b: Deklaracja i inicjalizacja wartości elementów tablicy w jednej linii
+       int[] tablica = {0, 5, 10, 15};
+       
+       //Przykład 2a: Odwoływanie się do elementów tablicy używając pętli for
+       for (int i = 0; i < tablica.Length; i++)
+           Console.WriteLine(tablica[i]);
+       
+       //Przykład 2b: Odwoływanie się do elementów tablicy używając pętli foreach...in
+       foreach (int element in tablica)
+           Console.WriteLine(element);
+       ```
+
+    2. **Tablica dwuwymiarowa**
+
+       Przykład użycia:
+
+       ```c#
+       //Przykład 1a: Deklaracja i w kolejnych liniach definicja elementów
+       string[,] imie = new string[2,2]; // Deklaracja tablicy rozmiarów 2 x 2
+       imie[0,0] = "Adam";
+       imie[0,1] = "Ewa";
+       imie[1,0] = "Kain";
+       imie[1,1] = "Abel";
+       
+       //Przykład 1b: Deklaracja i inicjalizacja wartości elementów tablicy w jednej linii
+       int[,] tablica = { {1,2}, {3,4} };
+       
+       //Przykład 2: Odwoływanie się do elementów tablicy 2-wymiarowej używając pętli for
+       for (int i = 0; i < tablica.GetLength(0); i++)
+       {
+           for (int j = 0; j < tablica.GetLength(1); j++)
+           {
+               Console.WriteLine(tablica[i, j]);
+           }
+       }
+       ```
+
+       
+
+    3. **Tablica N-wymiarowa**
+
+       Zasada analogiczna jak dla 2-wymiarowych.
+
+
 
