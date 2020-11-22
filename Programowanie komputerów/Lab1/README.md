@@ -35,7 +35,7 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
 
 3. (2 pkt) Napisz program, w którym w konsoli poprosisz użytkownika o podanie następujących danych: *imie*, *nazwisko*, wiek. Zadbaj o sprawdzenie poprawności wprowadzonego wieku korzystając z metody [*TryParse()*](https://docs.microsoft.com/pl-pl/dotnet/api/system.int32.tryparse?view=netcore-3.1) (proś użytkownika o podanie wieku tak długo, jak poda go w poprawnym formacie, zdolnym do zrzutowania na wartość liczbową) *Podpowiedź:* skorzystaj z pętli iteracyjnej *do...while*. 
 
-   **Uwaga:** Wyświetl na ekranie podane informacje w jednej linii (nie wielu!).
+   **Uwaga:** Wyświetl na ekranie konsoli podane informacje w jednej linii (nie wielu!).
 
 4. (2 pkt) Korzystając z klasy [*Math*](https://docs.microsoft.com/pl-pl/dotnet/api/system.math?view=netcore-3.1) wylicz następujące wyrażenie w programie i wyświetl zarówno jego dokładny wynik jak i wynik w zaokrągleniu do 2 miejsc po przecinku: 
 
