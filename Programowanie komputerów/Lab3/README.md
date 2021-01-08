@@ -1,1 +1,8 @@
-Zadania do Lab3 pojawią się do 9 stycznia 2021.
+# Laboratorium 3
+
+Pomoc do zadań znajdą Państwo w sekcji [POMOC](https://github.com/MichalKrogulecki/WSB/tree/master/Programowanie%20komputer%C3%B3w/Pomoc)
+
+## Zadania (8 pkt):
+1. (3 pkt) Napisz metodę *string DzienTygodnia(int dzien)* zwracającą nazwę dnia tygodnia, podając do niej numer dnia tygodnia. W funkcji głównej *Main()* poproś użytkownika o wybór numeru dnia tygodnia i przekaż parametr do metody *DzienTygodnia()*. Zadbaj o sprawdzenie poprawności podanego przez użytkownika numeru (zakres 1-7 jak i format danych typu *int*). **Uwaga**, nie wolno użyć instrukcji *switch…case* ani wielokrotnych instrukcji *if*. *Podpowiedź:* Skorzystaj z jakiejś ze struktur danych, które poznałeś poprzednio. 
+2. (3 pkt) Napisz program, w którym wywołasz funkcję wykonującą dzielenie, która przyjmie 2 argumenty: 1. – dzielna, 2. – dzielnik. Wynik działania należy zwrócić przez pierwszy z argumentów (nie przez return). Poproś użytkownika o podanie obu liczb i pamiętaj o sprawdzeniu, czy dzielnik jest różny od 0. *Podpowiedź*: Zapoznaj się z *przekazywaniem argumentów przez referencję* z sekcji [POMOC](https://github.com/MichalKrogulecki/WSB/tree/master/Programowanie%20komputer%C3%B3w/Pomoc)
+3. (2 pkt) Napisz jedną metodę (nie dwie ani trzy!), która to będzie mogła przyjmować 1, 2 albo 3 argumenty typu całkowitego i zwracać ich wynik mnożenia. W metodzie *Main()* wywołaj 3 razy te funkcję z różną liczbą parametrów, o wartościach zapisanych na sztywno w programie (nie pytaj użytkownika o podanie argumentów). *Podpowiedź*: Zapoznaj się z *argumentami domyślnymi* z sekcji [POMOC](
