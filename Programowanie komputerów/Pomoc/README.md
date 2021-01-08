@@ -595,5 +595,279 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
 
        Zasada analogiczna jak dla 2-wymiarowych.
 
+15. **Metody**
+
+    1. **Definicja i  wywołanie metody**
+
+       Metoda to inaczej **funkcja**, czyli podstawowe narzędzie do opisu zachowania obiektów w klasach. 
+
+       <u>Metody statyczne</u>, poprzedzone modyfikatorem *static*, to takie, które nie są wywoływane w kontekście żadnego konkretnego obiektu danej klasy, tzn. żeby je użyć, nie trzeba najpierw utworzyć żadnego obiektu tej klasy.
+
+       ```c#
+       [Modyfikatory] Typ Nazwa ([Lista argumentów])
+       {
+       	[Ciało metody]
+       }
+       ```
+
+       * Deklaracja metody:
+         * Modyfikatory - określają zachowanie i dostępność metody
+           * *public*  - udostępnia daną metodę na zewnątrz dla innych klas. 
+           * *private*  - umożliwia użycie metody tylko wewnątrz klasy.
+           * static - opisane kilka linijek wyżej
+           * i inne takie jak *new*, *virtual*, *abstract*, itp.
+         * Typ – typ danej zwracanej przez metodę
+           * *bool*, *int*, *float*, *string*, itp. zgodnie ze zwracanym przez metodę typem danych
+           * *void* - w przypadku, kiedy metoda nie zwraca nic
+         * Nazwa – nazwa metody, różna od nazwy klasy, w której została zdefiniowana. Mogą być w danej klasie metody o tej samej nazwie, ale muszą różnić się listą argumentów (są to tzw. metody przeciążone albo przeładowane).
+         * Lista argumentów - lista argumentów przekazywanych do metody, oddzielone przecinkami. Dla każdego argumentu musi być podany typ oraz jego nazwa. Metoda może nie mieć żadnych argumentów, wówczas umieszcza się pustą parę nawiasów.
+       * Ciało metody - kod (zbiór instrukcji) realizujący działanie metody
+
+       <u>Przykład 1:</u>
+
+       ```c#
+       using System;
+       
+       namespace Example
+       {
+           class Program
+           {
+               static void Odejmij(int x, int y)	// definicja metody
+               {
+                   Console.WriteLine(x - y);
+               }
+               static void Main(string[] args)
+               {
+                   Odejmij(4, 3); // wywołanie metody
+                   Console.ReadKey();
+               }
+           }
+       }
+       ```
+
+       Metoda *Odejmij()* przyjmuje 2 argumenty o typie *int*. Ciało tej metody wywołuje znaną już metodę *Console.WriteLine()* z argumentem w postaci odejmowania *y* od *x*, wyświetlając na ekranie konsoli wyliczoną wartość działania.
+
+       W metodzie *Main()* następuje wywołanie metody *Odejmij()* z dwoma argumentami, zgodnie z definicją metody. W wyniku tego, można założyć, że tymczasowo wewnątrz metody Odejmij() do *x* przypisywana jest wartość 4, a do *y* wartość 3.
+
+       Ponieważ metoda *Odejmij()* zgodnie z deklaracją ma nic nie zwracać (typ zwracanej wartość jest void), brak w jej ciele instrukcji *return*. 
+
+    2. **Zwracana wartość metody** 
+
+       Gdy definicja metody nie jest poprzedzona słowem *void* tylko jakimś z typów danych, oznacza to, że dana metoda zwraca jakąś wartość poprzez użycie instrukcji *return*
+
+       <u>Przykład 2:</u>
+
+       ```c#
+       using System;
+       
+       namespace Example
+       {
+           class Program
+           {
+               static int Odejmij(int x, int y)	// definicja metody
+               {
+                   return (x - y);
+               }
+               static void Main(string[] args)
+               {
+                   Console.WriteLine(Odejmij(4, 3)); // wywołanie metody
+                   Console.ReadKey();
+               }
+           }
+       }
+       ```
+
+       Nastąpiło kilka zmian w porównaniu do przykładu 1:
+
+       * Metoda *Odejmij* zwraca wartość typu *int* w postaci wyniku działania odejmowania. W ciele tej metody jest instrukcja *return* która zwraca wynik działania x - y.
+       * Ponieważ metoda *Odejmij* zwraca wartość, należy tę wartość przypisać do jakiejś zmiennej albo posłużyć się jej wywołaniem w innej metodzie, jak w przykładzie metodzie *WriteLine()*. W wyniku wywołania metody zewnętrznej *WriteLine()* z argumentem w postaci metody wewnętrznej *Odejmij()*, na ekranie konsoli zostanie wyświetlony wynik działania 4 - 3, czyli 1.
+
+    3. **Parametry metody**
+
+       1. **Przekazywanie argumentów przez wartość**
+
+          Domyślnym sposobem przekazywania argumentów jest przekazywanie przez wartość. Oznacza to, że wywoływana metoda otrzymuje kopię wartości podanych w argumentach. Ewentualne zmiany wartości argumentów wewnątrz metody nie będą widziane na zewnątrz.
+
+          <u>Przykład 3:</u>
+
+          ```c#
+          using System;
+          
+          namespace Example
+          {
+              class Program
+              {
+                  static void Dodaj(int x)
+                  {
+                      x++;
+                      Console.WriteLine("Wartosc z wnetrza metody to: " + x);
+                  }
+                  static void Main(string[] args)
+                  {
+                      int liczba = 2;
+                      Console.WriteLine("Wartosc PRZED wywolaniem metody to: " + liczba);
+                      Dodaj(liczba);
+                      Console.WriteLine("Wartosc PO wywolaniu metody to: " + liczba);
+                      Console.ReadKey();
+                  }
+              }
+          }
+          ```
+
+          W wyniku uruchomienia powyższego przykładu uzyskamy następujący obraz na konsoli:
+
+          ```bash
+          Wartosc PRZED wywolaniem metody to: 2
+          Wartosc z wnetrza metody to: 3
+          Wartosc PO wywolaniu metody to: 2
+          ```
+
+          Wewnątrz metody *Dodaj()* została zwiększona o 1 wartość argumentu *x*, niemniej jednak nie wpływa to na wartość zmiennej *liczba* z funkcji *Main()*. Otóż dlatego, iż przekazując zmienną *liczba* przez wartość (czyli tak jak w powyższym przykładzie), w metodzie *Dodaj()* tworzona jest lokalna kopia wartości tej liczby i dlatego jej zmiana nie jest widoczna po wyjściu z metody.
+
+       2. **Przekazywanie argumentów przez referencję**
+
+          Przekazywanie argumentów przez referencję oznacza, że do metody przekazywany jest adres argumentów. Wówczas wewnątrz metody nie jest robiona kopia lokalna (jak podczas przekazywania przez wartość), tylko metoda operuje na oryginalnych danych (posługując się ich adresem), a po wywołaniu metody ewentualne zmiany argumentu są widziane na zewnątrz (tam, gdzie była wołana metoda). 
+
+          Aby przekazać argument przez referencję należy poprzedzić jednym z 2 dostępnych modyfikatorów: *ref* lub *out*.
+
+          * *ref* - jeśli argument będzie inicjowany <u>w miejscu wywołania</u> metody
+          * *out* - jeśli argument będzie inicjowany <u>wewnątrz</u> metody
+
+          <u>Przykład 4:</u>
+
+          ```c#
+          using System;
+          
+          namespace Example
+          {
+              class Program
+              {
+                  static void Dodaj(ref int x)
+                  {
+                      x++;
+                      Console.WriteLine("Wartosc z wnetrza metody to: " + x);
+                  }
+                  static void Main(string[] args)
+                  {
+                      int liczba = 2;
+                      Console.WriteLine("Wartosc PRZED wywolaniem metody to: " + liczba);
+                      Dodaj(liczba);
+                      Console.WriteLine("Wartosc PO wywolaniu metody to: " + liczba);
+                      Console.ReadKey();
+                  }
+              }
+          }
+          ```
+
+          W wyniku uruchomienia powyższego przykładu uzyskamy następujący obraz na konsoli:
+
+          ```bash
+          Wartosc PRZED wywolaniem metody to: 2
+          Wartosc z wnetrza metody to: 3
+          Wartosc PO wywolaniu metody to: 3
+          ```
+
+          Kod z przykładu 4 jest prawie identyczny do kodu z przykładu 3. Różnica jest tylko w dodaniu modyfikatora *ref* w definicji metody *Dodaj()* i w wywołaniu tej metody. Zatem w tym przykładzie zachodzi przekazywanie parametrów przez referencję, a nie przez wartość jak w przykładzie poprzednim. Użycie *ref* przyczyniło się do tego, że po wyjściu z metody *Dodaj()*, zmienna *liczba* zachowała zmienioną wartość na zewnątrz metody. 
+
+       3. **Argumenty domyślne**
+
+          Metody można zadeklarować w taki sposób, aby niektóre ze swoich parametrów przyjmowały domyślne wartości w przypadku braku podania wystarczającej liczby parametrów w momencie ich wywoływania. Takie zjawisko nazywamy argumentami domyślnymi.
+
+          <u>Przykład 5:</u>
+
+          ```c#
+          using System;
+          
+          namespace Example
+          {
+              class Program
+              {
+                  static int Dodaj(int x, int y = 0)
+                  {
+                      return x + y;
+                  }
+                  static void Main(string[] args)
+                  {
+                      Console.WriteLine(Dodaj(3));
+                      Console.WriteLine(Dodaj(3,4));
+                      Console.ReadKey();
+                  }
+              }
+          }
+          ```
+
+          W wyniku uruchomienia powyższego przykładu uzyskamy następujący obraz na konsoli:
+
+          ```bash
+          3
+          7
+          ```
+
+          Jak widzimy, w przypadku wywołania *Dodaj(3)* kompilator nie uzyskał informacji o oczekiwanej wartości zmiennej *y* więc przyjął jej domyślną wartość, zadeklarowaną po znaku '=' w postaci '0'.
+
+          <u>Ważne!</u> Argumenty domyślne muszą być umieszczane zawsze na końcu listy argumentów.
+
+       4. Przekazywanie dowolnej, zmiennej liczby argumentów - TBA
+
+    4. **Przeciążenie (przeładowanie) metody**
+
+       Metody, które mają tę samą nazwę i różnią się listą argumentów (ich typem), nazywamy metodami przeciążonymi albo przeładowanymi.
+
+       <u>Przykład 6:</u>
+
+       ```c#
+       using System;
+       
+       namespace Example
+       {
+           class Program
+           {
+               static int Dodaj(int x)
+               {
+                   return ++x;
+               }
+               static int Dodaj(int x, int y)
+               {
+                   return x + y;
+               }
+               static double Dodaj(double x, double y)
+               {
+                   return x + y;
+               }
+               static void Main(string[] args)
+               {
+                   Console.WriteLine(Dodaj(3));
+                   Console.WriteLine(Dodaj(3,4));
+                   Console.WriteLine(Dodaj(3.14,4.17));
+                   Console.ReadKey();
+               }
+           }
+       }
+       ```
+
+       W wyniku uruchomienia powyższego przykładu uzyskamy następujący obraz na konsoli:
+
+       ```bash
+       4
+       7
+       7.31
+       ```
+
+       W przykładzie 6 zaprezentowano trzy przeciążone metody *Dodaj()* które różniły się typem zwracanych wartości i typem i liczbą przyjmowanych argumentów.
+
+    5. Rekurencja - TBA
+
+16. Listy - TBA
+
+    1. Jednokierunkowa
+    2. Dwukierunkowa i Wielokierunkowa
+    3. Dodawanie i usuwanie elementu z listy
+    4. Binarne drzewo poszukiwań (dodawanie, usuwanie, wyszukiwanie)
+
+17. Pliki - TBA
+
+    1. Odczytywanie plików
+    2. Zapisywanie plików
+
 
 
