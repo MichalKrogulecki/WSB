@@ -5,6 +5,7 @@
 * Obsługa plików
   * [źródło 1](https://cpp0x.pl/kursy/Kurs-C++/Poziom-4/Podstawy-obslugi-plikow/355)
   * [źródło 2](https://pl.wikibooks.org/wiki/C%2B%2B/Strumienie)
+* [Pseudolosowe liczby całkowite](https://cpp0x.pl/kursy/Kurs-C++/Poziom-2/Pseudolosowe-liczby-calkowite/290)
 
 ## Zadanie (10 pkt):
 
