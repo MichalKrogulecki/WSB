@@ -16,4 +16,6 @@ Pomoc do zadań znajdą Państwo w sekcji [POMOC](https://github.com/MichalKrogu
 
     *Podpowiedź*: Zapoznaj się z [argumentami wiersza poleceń](https://docs.microsoft.com/pl-pl/dotnet/csharp/programming-guide/main-and-command-args/command-line-arguments)
 
-4. (1 pkt) Zdefiniuj strukturę o nazwie *Student* i polach *Imie* (typu *string*) i *NrIndeksu* (typu *int*). W programie zainicjuj strukturę swoimi wartościami.  *Podpowiedź*: Zapoznaj się z [typem struktury](
+4. (1 pkt) Zdefiniuj strukturę o nazwie *Student* i polach *Imie* (typu *string*) i *NrIndeksu* (typu *int*). W programie zainicjuj strukturę swoimi wartościami.  *Podpowiedź*: Zapoznaj się z [typem struktury](https://docs.microsoft.com/pl-pl/dotnet/csharp/language-reference/builtin-types/struct)
+
+
