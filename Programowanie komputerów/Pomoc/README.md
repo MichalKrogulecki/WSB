@@ -855,19 +855,6 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
 
        W przykładzie 6 zaprezentowano trzy przeciążone metody *Dodaj()* które różniły się typem zwracanych wartości i typem i liczbą przyjmowanych argumentów.
 
-    5. Rekurencja - TBA
-
-16. Listy - TBA
-
-    1. Jednokierunkowa
-    2. Dwukierunkowa i Wielokierunkowa
-    3. Dodawanie i usuwanie elementu z listy
-    4. Binarne drzewo poszukiwań (dodawanie, usuwanie, wyszukiwanie)
-
-17. Pliki - TBA
-
-    1. Odczytywanie plików
-    2. Zapisywanie plików
 
 
 
