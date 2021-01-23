@@ -706,7 +706,7 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
                   {
                       int liczba = 2;
                       Console.WriteLine("Wartosc PRZED wywolaniem metody to: " + liczba);
-                      Dodaj(ref liczba);
+                      Dodaj(liczba);
                       Console.WriteLine("Wartosc PO wywolaniu metody to: " + liczba);
                       Console.ReadKey();
                   }
@@ -751,7 +751,7 @@ Polecam zapoznanie się z książką: http://c-sharp.ue.katowice.pl/ksiazka/c_sh
                   {
                       int liczba = 2;
                       Console.WriteLine("Wartosc PRZED wywolaniem metody to: " + liczba);
-                      Dodaj(liczba);
+                      Dodaj(ref liczba);
                       Console.WriteLine("Wartosc PO wywolaniu metody to: " + liczba);
                       Console.ReadKey();
                   }
